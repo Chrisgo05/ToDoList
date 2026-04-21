@@ -1,6 +1,5 @@
 const API_URL = "http://localhost:3000/tasks";
 
-// ADD TASK
 document.getElementById("addTask").addEventListener("click", async () => {
     const input = document.getElementById("task-input");
     const taskText = input.value;
@@ -42,11 +41,8 @@ document.getElementById("addTask").addEventListener("click", async () => {
     }
 });
 
-
-// DELETE + DONE (EVENT DELEGATION)
 document.addEventListener("click", async (e) => {
 
-    // DELETE
     if (e.target.classList.contains("del-btn")) {
         const li = e.target.closest("li");
         const id = li.dataset.id;
@@ -62,7 +58,6 @@ document.addEventListener("click", async (e) => {
         }
     }
 
-    // DONE / UNDONE
     if (e.target.classList.contains("done-btn")) {
         const btn = e.target;
         const li = btn.closest("li");
