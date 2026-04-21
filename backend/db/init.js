@@ -1,15 +1,14 @@
 const mysql = require("mysql2/promise");
 
 async function initDatabase(config) {
+
   const connection = await mysql.createConnection({
     host: config.host,
     user: config.user,
     password: config.password,
-    database: config.database,
     port: config.port,
-
-    ssl:{
-        rejectUnauthorized: false
+    ssl: {
+      rejectUnauthorized: false
     }
   });
 
@@ -35,7 +34,10 @@ async function initDatabase(config) {
     user: config.user,
     password: config.password,
     database: config.database,
-    port: config.port
+    port: config.port,
+    ssl: {
+      rejectUnauthorized: false
+    }
   });
 
   return db;
